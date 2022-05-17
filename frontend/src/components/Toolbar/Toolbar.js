@@ -1,6 +1,5 @@
 import { Typography } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
-import Hamburger from 'hamburger-react';
 import PositionedMenu from '../HamburgerMenu/HamburgerMenu';
 
 function ToolbarCustom() {
