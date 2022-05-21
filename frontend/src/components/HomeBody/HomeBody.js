@@ -108,7 +108,6 @@ function HomeBodyContent() {
       {/* home text */}
       <Container
         maxWidth={false}
-        sx={{ background: "#f7f5dc", height: "100vh" }}
       >
         {HomeBodyTitle}
         {/* End home text */}

@@ -7,7 +7,7 @@ import HomeBody from '../components/HomeBody/HomeBody';
 function LandingPage() {
   return (
     <React.Fragment>
-      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, background: '#e0d8c8' }} />
+      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, background: '#8f681a' }} />
       <CssBaseline />
       {/* <AppBar>
       </AppBar> */}
