@@ -7,13 +7,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 // import TypeAnimation from 'react-type-animation';
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
+import PriceTable from "../PriceTable/PriceTable";
+import AboutBobSalon from "../AboutBobSalon/AboutBobSalon";
 
-const tiers = [
+const navigationCard = [
   {
     id: "about",
     title: "über bob-salon",
@@ -53,40 +51,44 @@ function HomeBodyContent() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "100vw" : "100vw" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List 
-        sx={{ maxHeight: '90vh' }}
-      >
-        {[
-          ["Haarschnitt inkl. Styling", "65€"],
-          ["Haarschnitt", "38€"],
-          ["Ansatz", "45€"],
-          ["Styling", "35€"],
-          ["Kind (12-16)", "25€"],
-          ["Global", "70€"],
-          ["Hochstecken", "50€"],
-          ["Painting", "65€-120€"],
-          ["Strähnen", "55€-20€"],
-          ["Augenbrauen zupfen", "8€"],
-          ["Augenbrauen zupfen und färben", "10€"],
-        ].map((text, index) => (
-          <dev>
-            <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text[0]} sx={{ flexGrow: 1, ml: "5px", minWidth: "97vw" }} />
-              <ListItemText primary={text[1]} style={{display:'flex', justifyContent:'flex-end'}}/>
-            </ListItemButton>
-            </ListItem>
-          </dev>
-          
-        ))}
-      </List>
+      <PriceTable />
     </Box>
   );
+
+  const infoAboutBob = (anchor) => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "100vw" : "100vw" }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <AboutBobSalon />
+    </Box>
+  );
+
+  const HomeBodyTitle = <Container disableGutters component="main" sx={{ pt: 12, pb: 6 }}>
+    <Typography
+      component="h1"
+      variant="h2"
+      align="center"
+      fontWeight="bold"
+      color="text.primary"
+      gutterBottom
+    >
+      {/* <TypeAnimation
+      cursor={false}
+      sequence={['bob-salon', 5000]}
+    /> */}
+      {/* Es gibt einen Bug, nach dem Fix erst aktivieren. */}
+      bob-salon
+    </Typography>
+  </Container>;
+
 
   return (
     <React.Fragment>
@@ -95,27 +97,11 @@ function HomeBodyContent() {
         maxWidth={false}
         sx={{ background: "#f7f5dc", height: "100vh" }}
       >
-        <Container disableGutters component="main" sx={{ pt: 12, pb: 6 }}>
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            fontWeight="bold"
-            color="text.primary"
-            gutterBottom
-          >
-            {/* <TypeAnimation
-              cursor={false}
-              sequence={['bob-salon', 5000]}
-            /> */}
-            {/* Es gibt einen Bug, nach dem Fix erst aktivieren. */}
-            bob-salon
-          </Typography>
-        </Container>
+        {HomeBodyTitle}
         {/* End home text */}
         <Container maxWidth="lg" component="main">
           <Grid container spacing={5} alignItems="flex-end">
-            {tiers.map((tier) => (
+            {navigationCard.map((tier) => (
               // Enterprise card is full width at sm breakpoint
               <Grid item key={tier.title} xs={12} sm={6} md={3}>
                 <Button
@@ -144,22 +130,23 @@ function HomeBodyContent() {
                     />
                   </Card>
                 </Button>
+                { tier.id === 'price' ?
+                  <Drawer
+                    anchor={"bottom"}
+                    open={state[tier.id]}
+                    onClose={toggleDrawer(tier.id, false)}
+                  >
+                    {list(tier.id)}
+                  </Drawer>
+                :
                 <Drawer
                   anchor={"bottom"}
                   open={state[tier.id]}
                   onClose={toggleDrawer(tier.id, false)}
                 >
-                  {list(tier.id)}
+                  {infoAboutBob(tier.id)}
                 </Drawer>
-                {/* <React.Fragment key={tier.id}>
-                    <Drawer
-                      anchor={"bottom"}
-                      open={state[tier.id]}
-                      onClose={toggleDrawer(tier.id, false)}
-                    >
-                      {list(tier.id)}
-                    </Drawer>
-                  </React.Fragment> */}
+                }
               </Grid>
             ))}
           </Grid>
