@@ -9,8 +9,8 @@ function LandingPage() {
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, background: '#e0d8c8' }} />
       <CssBaseline />
-      <AppBar>
-      </AppBar>
+      {/* <AppBar>
+      </AppBar> */}
       <HomeBody>
       </HomeBody>
     </React.Fragment>

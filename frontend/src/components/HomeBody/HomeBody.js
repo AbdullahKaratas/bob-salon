@@ -5,11 +5,13 @@ import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-// import TypeAnimation from 'react-type-animation';
+import TypeAnimation from 'react-type-animation';
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import PriceTable from "../PriceTable/PriceTable";
 import AboutBobSalon from "../AboutBobSalon/AboutBobSalon";
+import WorkingOnIt from "../WorkingOnItPage/WorkingOnIt";
+
 
 const navigationCard = [
   {
@@ -60,6 +62,17 @@ function HomeBodyContent() {
     </Box>
   );
 
+  const reservationCard = (anchor) => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "100vw" : "100vw" }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <WorkingOnIt />
+    </Box>
+  );
+
   const infoAboutBob = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "100vw" : "100vw" }}
@@ -71,7 +84,7 @@ function HomeBodyContent() {
     </Box>
   );
 
-  const HomeBodyTitle = <Container disableGutters component="main" sx={{ pt: 12, pb: 6 }}>
+  const HomeBodyTitle = <Container disableGutters component="main" sx={{ pt: 30, pb: 6 }}>
     <Typography
       component="h1"
       variant="h2"
@@ -82,7 +95,7 @@ function HomeBodyContent() {
     >
       {/* <TypeAnimation
       cursor={false}
-      sequence={['bob-salon', 5000]}
+      sequence={['bob-salon', 1]}
     /> */}
       {/* Es gibt einen Bug, nach dem Fix erst aktivieren. */}
       bob-salon
@@ -130,7 +143,7 @@ function HomeBodyContent() {
                     />
                   </Card>
                 </Button>
-                { tier.id === 'price' ?
+                { tier.id === 'price' ? (
                   <Drawer
                     anchor={"bottom"}
                     open={state[tier.id]}
@@ -138,15 +151,23 @@ function HomeBodyContent() {
                   >
                     {list(tier.id)}
                   </Drawer>
-                :
-                <Drawer
+                ) : tier.id === 'about' ? (
+                  <Drawer
                   anchor={"bottom"}
                   open={state[tier.id]}
                   onClose={toggleDrawer(tier.id, false)}
                 >
                   {infoAboutBob(tier.id)}
                 </Drawer>
-                }
+                ) : (
+                 <Drawer
+                  anchor={"bottom"}
+                  open={state[tier.id]}
+                  onClose={toggleDrawer(tier.id, false)}
+                >
+                  {reservationCard(tier.id)}
+                </Drawer>
+                )}
               </Grid>
             ))}
           </Grid>
