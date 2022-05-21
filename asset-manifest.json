@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.6d61f489.css",
-    "main.js": "/static/js/main.3e63f86f.js",
-    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
-    "static/media/imgAbout.png": "/static/media/imgAbout.e9e91bb084943ceb9a72.png",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.6d61f489.css.map": "/static/css/main.6d61f489.css.map",
-    "main.3e63f86f.js.map": "/static/js/main.3e63f86f.js.map",
-    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/bob-salon/static/css/main.6d61f489.css",
+    "main.js": "/bob-salon/static/js/main.eb5d5ea2.js",
+    "static/js/787.28cb0dcd.chunk.js": "/bob-salon/static/js/787.28cb0dcd.chunk.js",
+    "static/media/imgAbout.png": "/bob-salon/static/media/imgAbout.e9e91bb084943ceb9a72.png",
+    "static/media/logo.svg": "/bob-salon/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/bob-salon/index.html",
+    "main.6d61f489.css.map": "/bob-salon/static/css/main.6d61f489.css.map",
+    "main.eb5d5ea2.js.map": "/bob-salon/static/js/main.eb5d5ea2.js.map",
+    "787.28cb0dcd.chunk.js.map": "/bob-salon/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6d61f489.css",
-    "static/js/main.3e63f86f.js"
+    "static/js/main.eb5d5ea2.js"
   ]
 }
